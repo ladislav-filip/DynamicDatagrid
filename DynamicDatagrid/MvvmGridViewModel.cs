@@ -10,45 +10,32 @@ namespace DynamicDatagrid
 
         public MvvmGridViewModel()
         {
-            //InitRaw();
             InitConvert();
-        }
-
-        private void InitRaw()
-        {
-            var tbl = new DataTable();
-
-            tbl.Columns.Add("Id", typeof(int));
-            tbl.Columns.Add("Name", typeof(string));
-
-            var r = tbl.NewRow();
-            r["Id"] = 1;
-            r["Name"] = "Honza";
-            tbl.Rows.Add(r);
-
-            r = tbl.NewRow();
-            r["Id"] = 2;
-            r["Name"] = "Pepa";
-            tbl.Rows.Add(r);
-
-            r = tbl.NewRow();
-            r["Id"] = 3;
-            r["Name"] = "Kevin";
-            tbl.Rows.Add(r);
-
-            Table = tbl;
         }
 
         private void InitConvert()
         {
             var list = new List<UserDTO>()
             {
-                new UserDTO() { Id = 100, Name = "Petr"},
-                new UserDTO() { Id = 101, Name = "Jan"},
-                new UserDTO() { Id = 102, Name = "Daniel"},
-                new UserDTO() { Id = 103, Name = "Miladka"},
+                new UserDTO()
+                {
+                    Id = 100, Name = "Petr",
+                    FieldsValues = new List<object>() { 580, 2}
+                },
+                new UserDTO() { Id = 101, Name = "Jan", FieldsValues = new List<object>() { 500, 1}},
+                new UserDTO() { Id = 102, Name = "Daniel", FieldsValues = new List<object>() { 2500, 8}},
+                new UserDTO() { Id = 103, Name = "Miladka", FieldsValues = new List<object>() { 300, 12}},
             };
-            var cnv = new DtoToTable(list);
+
+            var container = new GridContainerDTO<UserDTO>();
+            container.Items = list;
+            container.Fields = new List<FieldInfoDTO>()
+            {
+                new FieldInfoDTO() { Name = "Cena", DataType = typeof(decimal)},
+                new FieldInfoDTO() { Name = "Poradi", DataType = typeof(int)}
+            };            
+
+            var cnv = new DtoToTable<GridContainerDTO<UserDTO>, UserDTO>(container);
             Table = cnv.GetTable();
         }
     }
