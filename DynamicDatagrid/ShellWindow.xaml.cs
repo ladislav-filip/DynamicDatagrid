@@ -1,16 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+﻿using System.Windows;
 
 namespace DynamicDatagrid
 {
@@ -24,9 +12,34 @@ namespace DynamicDatagrid
             InitializeComponent();
 
             SimpleButton.Click += Button_Click;
+            MvvmButton.Click += Button_Click;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            ContentPanel.Children.Clear();
+
+            if (sender == SimpleButton)
+            {
+                ShowSimple();
+            }
+            else
+            {
+                ShowMvvm();
+            }
+        }
+
+        private void ShowMvvm()
+        {
+            var model = new MvvmGridViewModel();
+            var view = new MvvmGridView();
+            view.DataContext = model;
+            view.VerticalAlignment = VerticalAlignment.Stretch;
+            view.HorizontalAlignment = HorizontalAlignment.Stretch;
+            ContentPanel.Children.Add(view);
+        }
+
+        private void ShowSimple()
         {
             var view = new SimpleGridView();
             view.VerticalAlignment = VerticalAlignment.Stretch;

@@ -18,6 +18,7 @@
 
         <StackPanel Grid.Column="0" Grid.Row="0">
             <Button Content="Simple" x:Name="SimpleButton"/>
+            <Button Content="MVVM" x:Name="MvvmButton"/>
         </StackPanel>
 
         <DockPanel Background="AntiqueWhite" Grid.Column="1" Grid.Row="0" x:Name="ContentPanel"></DockPanel>        
