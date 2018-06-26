@@ -63,6 +63,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="CommandHandler.cs" />
     <Compile Include="DtoToTable.cs" />
     <Compile Include="DTO\FieldInfoDTO.cs" />
     <Compile Include="DTO\GridContainerDTO.cs" />
@@ -71,6 +72,7 @@
       <DependentUpon>MvvmGridView.xaml</DependentUpon>
     </Compile>
     <Compile Include="MvvmGridViewModel.cs" />
+    <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Repositories\IUserRepo.cs" />
     <Compile Include="Repositories\UserRepo.cs" />
     <Compile Include="ShellWindow.xaml.cs">
