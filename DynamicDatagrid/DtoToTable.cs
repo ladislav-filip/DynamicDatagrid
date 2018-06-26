@@ -1,5 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using DynamicDatagrid.DTO;
+using System;
 using System.Data;
 using System.Linq;
 using System.Reflection;
@@ -15,14 +15,14 @@ namespace DynamicDatagrid
         }
     }
 
-    public class DtoToTable<T, T2> where T : GridContainerDTO<T2>
-        where T2: GridDTO
+    public class DtoToTable<TContainer, TDto> where TContainer : GridContainerDTO<TDto>
+        where TDto: GridDTO
     {
-        private readonly T m_container;
+        private readonly TContainer m_container;
 
         private DataTable m_table = new DataTable();
 
-        public DtoToTable(T container)
+        public DtoToTable(TContainer container)
         {
             m_container = container;
             var typeDto = m_container.GetTypeDTO();
@@ -71,7 +71,7 @@ namespace DynamicDatagrid
             }
         }
 
-        private void FillRowFromFields(DataRow r, T2 dto)
+        private void FillRowFromFields(DataRow r, TDto dto)
         {
             for (var i = 0; i < m_container.Fields.Count; i++)
             {

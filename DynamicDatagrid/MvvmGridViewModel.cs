@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Data;
 using System.Windows.Documents;
+using DynamicDatagrid.DTO;
 
 namespace DynamicDatagrid
 {

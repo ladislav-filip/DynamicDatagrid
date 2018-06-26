@@ -64,6 +64,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="DtoToTable.cs" />
+    <Compile Include="DTO\FieldInfoDTO.cs" />
+    <Compile Include="DTO\GridContainerDTO.cs" />
+    <Compile Include="DTO\GridDTO.cs" />
     <Compile Include="MvvmGridView.xaml.cs">
       <DependentUpon>MvvmGridView.xaml</DependentUpon>
     </Compile>
@@ -78,7 +81,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="UserDTO.cs" />
+    <Compile Include="DTO\UserDTO.cs" />
     <Page Include="MvvmGridView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
