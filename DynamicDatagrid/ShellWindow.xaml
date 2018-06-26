@@ -20,6 +20,6 @@
             <Button Content="Simple" x:Name="SimpleButton"/>
         </StackPanel>
 
-        <DockPanel Grid.Column="1" Grid.Row="1" x:Name="ContentPanel"></DockPanel>        
+        <DockPanel Background="AntiqueWhite" Grid.Column="1" Grid.Row="0" x:Name="ContentPanel"></DockPanel>        
     </Grid>
 </Window>

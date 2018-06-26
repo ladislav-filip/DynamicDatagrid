@@ -22,6 +22,16 @@ namespace DynamicDatagrid
         public ShellWindow()
         {
             InitializeComponent();
+
+            SimpleButton.Click += Button_Click;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            var view = new SimpleGridView();
+            view.VerticalAlignment = VerticalAlignment.Stretch;
+            view.HorizontalAlignment = HorizontalAlignment.Stretch;
+            ContentPanel.Children.Add(view);
         }
     }
 }
