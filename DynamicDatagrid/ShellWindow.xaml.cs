@@ -31,7 +31,8 @@ namespace DynamicDatagrid
 
         private void ShowMvvm()
         {
-            var model = new MvvmGridViewModel();
+            var userRepo = new Repositories.UserRepo();
+            var model = new MvvmGridViewModel(userRepo);
             var view = new MvvmGridView();
             view.DataContext = model;
             view.VerticalAlignment = VerticalAlignment.Stretch;

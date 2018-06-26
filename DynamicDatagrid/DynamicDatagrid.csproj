@@ -71,6 +71,8 @@
       <DependentUpon>MvvmGridView.xaml</DependentUpon>
     </Compile>
     <Compile Include="MvvmGridViewModel.cs" />
+    <Compile Include="Repositories\IUserRepo.cs" />
+    <Compile Include="Repositories\UserRepo.cs" />
     <Compile Include="ShellWindow.xaml.cs">
       <DependentUpon>ShellWindow.xaml</DependentUpon>
     </Compile>
