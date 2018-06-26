@@ -1,4 +1,6 @@
-﻿using System.Data;
+﻿using System.Collections.Generic;
+using System.Data;
+using System.Windows.Documents;
 
 namespace DynamicDatagrid
 {
@@ -8,10 +10,11 @@ namespace DynamicDatagrid
 
         public MvvmGridViewModel()
         {
-            Init();
+            //InitRaw();
+            InitConvert();
         }
 
-        private void Init()
+        private void InitRaw()
         {
             var tbl = new DataTable();
 
@@ -34,6 +37,19 @@ namespace DynamicDatagrid
             tbl.Rows.Add(r);
 
             Table = tbl;
+        }
+
+        private void InitConvert()
+        {
+            var list = new List<UserDTO>()
+            {
+                new UserDTO() { Id = 100, Name = "Petr"},
+                new UserDTO() { Id = 101, Name = "Jan"},
+                new UserDTO() { Id = 102, Name = "Daniel"},
+                new UserDTO() { Id = 103, Name = "Miladka"},
+            };
+            var cnv = new DtoToTable(list);
+            Table = cnv.GetTable();
         }
     }
 }
